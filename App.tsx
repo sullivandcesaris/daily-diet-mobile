@@ -1,20 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useFonts, NunitoSans_600SemiBold } from "@expo-google-fonts/nunito-sans";
+import { ThemeProvider } from 'styled-components'
+import theme from './src/styles/theme'
+import { Home } from '@screens/Home';
+import { Loading } from "@components/Loading";
+
+
 
 export default function App() {
+
+  let [fontsLoaded] = useFonts({
+    NunitoSans_600SemiBold,
+  })
+  
+  if (!fontsLoaded) {
+    return null 
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <ThemeProvider theme={theme}>
+      {!fontsLoaded ? <Loading /> : <Home />}
+    </ThemeProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
