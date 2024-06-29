@@ -9,7 +9,7 @@ type Props = {
 
 export const Container = styled.TouchableOpacity<Props>`
   max-height: 70px;
-  padding: 24px 16px;
+  padding: 16px;
   margin: 4px 0;
   ${({theme, type}) => 
   type === 'SECONDARY' ? 'border: 2px solid ' + theme.COLORS.GRAY_600 : ''};
@@ -19,7 +19,7 @@ export const Container = styled.TouchableOpacity<Props>`
   justify-content: center;
   align-items: center;
   flex-grow: 1;
-  gap: 4px;
+  gap: 12px;
 
   /* Utilize a interpolação para aplicar a condicional */
   background-color: ${({ theme, type }) => type === 'PRIMARY' 

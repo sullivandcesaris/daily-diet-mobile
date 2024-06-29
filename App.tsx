@@ -1,3 +1,4 @@
+import React from "react";
 import { 
   useFonts, 
   NunitoSans_400Regular, 
@@ -5,10 +6,8 @@ import {
 } from "@expo-google-fonts/nunito-sans";
 import { ThemeProvider } from 'styled-components'
 import theme from './src/styles/theme'
-import { Home } from '@screens/Home';
 import { Loading } from "@components/Loading";
-
-
+import { Routes } from "@routes"
 
 export default function App() {
 
@@ -22,8 +21,14 @@ export default function App() {
   }
 
   return (
-    <ThemeProvider theme={theme}>
-      {!fontsLoaded ? <Loading /> : <Home />}
-    </ThemeProvider>
+    
+      <ThemeProvider theme={theme}>
+        {!fontsLoaded 
+          ? 
+            <Loading /> 
+          : 
+            <Routes />
+        }
+      </ThemeProvider>
   );
 }
