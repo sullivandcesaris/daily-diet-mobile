@@ -7,12 +7,13 @@ interface CircleProps {
 export const Container = styled.View`
   flex: 1;
   background-color: ${({ theme }) => theme.COLORS.WHITE };
-  padding: 48px 24px;
+  padding: 48px 24px 0px 24px;
 `
 
 export const Content = styled.View`
   flex: 1;
-  gap: 32px;
+  justify-content: space-around;
+  gap: 16px;
 `
 
 export const Header = styled.View`
@@ -42,7 +43,7 @@ export const StringDate = styled.Text`
 
 export const ContainerList = styled.View`
   margin: 14px 0;
-`
+`;
 
 export const ContainerInfo = styled.View`
   margin: 4px 0;
@@ -73,9 +74,9 @@ export const OutInfoStatus = styled.Text`
   align-items: center;
 `
 export const OptionCircle = styled.View<CircleProps>`
-  width: 20px;
-  height: 20px;
-  border-radius: 5px;
+  width: 12px;
+  height: 12px;
+  border-radius: 12px;
   background-color: ${({ theme, type }) => 
     type === true 
     ? theme.COLORS.GREEN_500 
