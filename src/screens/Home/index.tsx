@@ -19,7 +19,7 @@ import {
   TitleInfo,
 } from "./styles";
 import { Button } from "@components/Button";
-
+import { ProfileScreenNavigationProp } from "@types/navigation";
 // Temporario
 import { Meals } from "@storage/mealsStorage";
 
@@ -29,7 +29,11 @@ interface Refeicao {
   saudavel: boolean;
 }
 
-export function Home({ navigation }) {
+type Props = {
+  navigation: ProfileScreenNavigationProp;
+};
+
+export function Home({ navigation }: Props) {
   const [informacoesUsuario, setInformacoesUsuario] = useState(null);
 
   // Função para buscar informações do usuário no GitHub

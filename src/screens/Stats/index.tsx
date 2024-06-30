@@ -1,3 +1,4 @@
+import { ProfileScreenNavigationProp } from "@types/navigation";
 import {
   CardStats,
   CardStatsTitle,
@@ -19,7 +20,11 @@ import {
   getUnhealthyMealsCount,
 } from "@utils/getStatsStorage";
 
-export function Stats({ navigation }) {
+type Props = {
+  navigation: ProfileScreenNavigationProp;
+};
+
+export function Stats({ navigation }: Props) {
   const percentege = calculatePercentage();
   const bestHealthySequence = getBestHealthySequence();
   const totalMeals = getTotalMeals();
