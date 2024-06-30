@@ -1,5 +1,5 @@
 import { styled } from "styled-components/native";
-import { MaterialIcons } from '@expo/vector-icons';
+import { MaterialIcons } from "@expo/vector-icons";
 
 export const Container = styled.View<{ percentage: number }>`
   background-color: ${({ theme, percentage }) =>
@@ -13,22 +13,22 @@ export const Container = styled.View<{ percentage: number }>`
 `;
 
 export const Title = styled.Text`
-  font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD };
-  font-size: ${({ theme }) => theme.FONT_SIZE.XL3 };
-  color: ${({ theme }) => theme.COLORS.GRAY_700 };
-`
+  font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
+  font-size: ${({ theme }) => theme.FONT_SIZE.XL3};
+  color: ${({ theme }) => theme.COLORS.GRAY_700};
+`;
 
 export const Description = styled.Text`
-  font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR };
-  font-size: ${({ theme }) => theme.FONT_SIZE.MD };
-  color: ${({ theme }) => theme.COLORS.GRAY_600 };
-` 
+  font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};
+  font-size: ${({ theme }) => theme.FONT_SIZE.MD};
+  color: ${({ theme }) => theme.COLORS.GRAY_600};
+`;
 
 export const Icon = styled(MaterialIcons)<{ percentage: number }>`
-  font-size: ${({ theme }) => theme.FONT_SIZE.XL2 };
+  font-size: ${({ theme }) => theme.FONT_SIZE.XL2};
   color: ${({ theme, percentage }) =>
     percentage >= 50 ? theme.COLORS.GREEN_700 : theme.COLORS.RED_700};
   position: absolute;
   top: 2px;
   right: 2px;
-`
+`;

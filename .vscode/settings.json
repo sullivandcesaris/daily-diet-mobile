@@ -1,5 +1,10 @@
 {
   "cSpell.words": [
     "Nunito"
-  ]
+  ],
+  "terminal.integrated.cwd": "",
+  "editor.fontFamily": "JetBrains Mono, Consolas, 'Courier New', monospace",
+  "editor.fontSize": 11,
+  "editor.fontLigatures": true,
+  "editor.tabSize": 2,
 }
