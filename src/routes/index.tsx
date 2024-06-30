@@ -6,24 +6,24 @@ import { Stats } from "@screens/Stats";
 const Stack = createNativeStackNavigator();
 
 export function Routes() {
-    return (    
-        <NavigationContainer>
-            <Stack.Navigator initialRouteName="Home">
-                <Stack.Screen 
-                    name="Home" 
-                    component={Home} 
-                    options={{
-                        headerShown: false,
-                    }}
-                />
-                <Stack.Screen 
-                    name="Stats" 
-                    component={Stats} 
-                    options={{
-                        headerShown: false,
-                    }}
-                />
-            </Stack.Navigator>
-        </NavigationContainer> 
-    );
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="Stats"
+          component={Stats}
+          options={{
+            headerShown: false,
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }

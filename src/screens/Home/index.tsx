@@ -1,17 +1,29 @@
-import React, { useState, useEffect } from 'react';
-import { Image, Text, View, FlatList, TouchableOpacity } from 'react-native';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import { Image, Text, View, FlatList, TouchableOpacity } from "react-native";
+import axios from "axios";
 
-import { Percent } from '@components/Percent';
+import { Percent } from "@components/Percent";
 
-import logo from '@assets/images/logo.png';
-import { Avatar, Container, ContainerInfo, ContainerList, Content, DateInfo, Header, Label, OptionCircle, StringDate, TitleInfo } from "./styles";
-import { Button } from '@components/Button';
+import logo from "@assets/images/logo.png";
+import {
+  Avatar,
+  Container,
+  ContainerInfo,
+  ContainerList,
+  Content,
+  DateInfo,
+  Header,
+  Label,
+  OptionCircle,
+  StringDate,
+  TitleInfo,
+} from "./styles";
+import { Button } from "@components/Button";
 
 // Temporario
-import { Meals } from '@storage/mealsStorage';
+import { Meals } from "@storage/mealsStorage";
 
-interface Refeicao{
+interface Refeicao {
   horario: string;
   nomeComida: string;
   saudavel: boolean;
@@ -23,23 +35,27 @@ export function Home({ navigation }) {
   // Função para buscar informações do usuário no GitHub
   async function buscarInformacoesUsuario(username: string) {
     try {
-      const response = await axios.get(`https://api.github.com/users/${username}`);
+      const response = await axios.get(
+        `https://api.github.com/users/${username}`,
+      );
       return response.data;
     } catch (error) {
-      console.error('Erro ao buscar informações do usuário:', error.message);
+      console.error("Erro ao buscar informações do usuário:", error.message);
       return null;
     }
   }
 
   useEffect(() => {
-    buscarInformacoesUsuario('sullivandcesaris')
-      .then((data) => {
-        setInformacoesUsuario(data);
-      });
+    buscarInformacoesUsuario("sullivandcesaris").then((data) => {
+      setInformacoesUsuario(data);
+    });
   }, []);
 
-  const renderItem = ({ item }: { item: { data: string, cardapioDiaList: Refeicao } }) => (
-
+  const renderItem = ({
+    item,
+  }: {
+    item: { data: string; cardapioDiaList: Refeicao };
+  }) => (
     <ContainerList>
       <StringDate>{item.data}</StringDate>
       {item.cardapioDiaList.map((refeicao, indiceCardapioDia) => (
@@ -47,7 +63,11 @@ export function Home({ navigation }) {
           <DateInfo>{refeicao.horario}</DateInfo>
           <TitleInfo>{refeicao.nomeComida}</TitleInfo>
           <Text>
-            {refeicao.saudavel ? <OptionCircle type={true} /> : <OptionCircle type={false} />}
+            {refeicao.saudavel ? (
+              <OptionCircle type={true} />
+            ) : (
+              <OptionCircle type={false} />
+            )}
           </Text>
         </ContainerInfo>
       ))}
@@ -62,13 +82,13 @@ export function Home({ navigation }) {
           <Avatar source={{ uri: informacoesUsuario.avatar_url }} />
         )}
       </Header>
-      <TouchableOpacity onPress={() => navigation.navigate('Stats')}>
+      <TouchableOpacity onPress={() => navigation.navigate("Stats")}>
         <Percent />
       </TouchableOpacity>
       <Content>
         <View>
           <Label>Refeições</Label>
-          <Button icon='add' text='Nova refeição' />
+          <Button icon="add" text="Nova refeição" />
         </View>
         {Meals && (
           <FlatList

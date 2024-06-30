@@ -1,9 +1,8 @@
-import React from 'react';
+import React from "react";
 import { Container, Description, Icon, Title } from "./styles";
 import { calculatePercentage } from "@utils/getStatsStorage";
 
 export function Percent() {
-
   const percentage = parseFloat(calculatePercentage());
 
   return (
