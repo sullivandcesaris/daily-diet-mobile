@@ -1,5 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { AddNewMeal } from "@screens/AddNewMeal";
 import { Home } from "@screens/Home";
 import { Stats } from "@screens/Stats";
 
@@ -19,6 +20,13 @@ export function Routes() {
         <Stack.Screen
           name="Stats"
           component={Stats}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="AddNewMeal"
+          component={AddNewMeal}
           options={{
             headerShown: false,
           }}
