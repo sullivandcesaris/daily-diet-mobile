@@ -24,11 +24,12 @@ export const Label = styled.Text`
   margin-bottom: 4px;
   font-size: 16px;
   font-weight: bold;
+  color: ${({ theme }) => theme.COLORS.GRAY_700};
 `;
 
 export const StyledTextInput = styled(TextInput)`
   border: 1px solid #ccc;
   border-radius: 4px;
-  padding: 8px;
+  padding: 8px 12px;
   ${({ multiline }) => multiline && `text-align-vertical: top;`}
 `;

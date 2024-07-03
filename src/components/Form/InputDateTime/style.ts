@@ -23,6 +23,7 @@ export const Label = styled.Text`
   margin-bottom: 4px;
   font-size: 16px;
   font-weight: bold;
+  color: ${({ theme }) => theme.COLORS.GRAY_700};
 `;
 
 export const StyledInput = styled.TextInput`

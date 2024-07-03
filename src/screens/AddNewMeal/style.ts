@@ -33,16 +33,23 @@ export const Icon = styled(MaterialIcons)`
 
 export const Content = styled.View`
   flex: 1;
-  gap: 16px;
+  gap: 24px;
   background-color: ${({ theme }) => theme.COLORS.WHITE};
-  padding: 48px 24px 0px 24px;
+  padding: 48px 24px 24px 24px;
   border-radius: 16px 16px 0 0;
+  justify-content: space-between;
+`;
+
+export const FormContainer = styled.View`
+  width: 100%;
+  flex-direction: column;
   align-items: center;
+  gap: 24px;
 `;
 
 export const VStack = styled.View`
   flex-direction: row;
   justify-content: start;
   gap: 16px;
-  padding: 0px 20px 0px 20px;
+  padding: 0px 20px;
 `;

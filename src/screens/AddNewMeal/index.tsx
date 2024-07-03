@@ -2,6 +2,7 @@ import { ProfileScreenNavigationProp } from "@types/navigation";
 import {
   Container,
   Content,
+  FormContainer,
   Header,
   Icon,
   IconPressable,
@@ -11,6 +12,7 @@ import {
 import { Button } from "@components/Button";
 import { InputText } from "@components/Form/InputText";
 import { InputDateTime } from "@components/Form/InputDateTime";
+import { CheckButton } from "@components/Form/CheckButton";
 
 type Props = {
   navigation: ProfileScreenNavigationProp;
@@ -26,12 +28,15 @@ export function AddNewMeal({ navigation }: Props) {
         </IconPressable>
       </Header>
       <Content>
-        <InputText label="Nome" />
-        <InputText label="Descrição" multiline numberOfLines={4} />
-        <VStack>
-          <InputDateTime label="Data" size="md" />
-          <InputDateTime label="Hora" type="time" size="md" />
-        </VStack>
+        <FormContainer>
+          <InputText label="Nome" />
+          <InputText label="Descrição" multiline numberOfLines={4} />
+          <VStack>
+            <InputDateTime label="Data" size="md" />
+            <InputDateTime label="Hora" type="time" size="md" />
+          </VStack>
+          <CheckButton label="Está dentro da dieta?" />
+        </FormContainer>
         <Button text="Cadastrar refeição" />
       </Content>
     </Container>
