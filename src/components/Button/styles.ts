@@ -5,9 +5,24 @@ export type ButtonIconTypeStyleProps = "PRIMARY" | "SECONDARY";
 
 type Props = {
   type: ButtonIconTypeStyleProps;
+  size: string;
+};
+
+const getWidth = (size?: "lg" | "md" | "sm") => {
+  switch (size) {
+    case "lg":
+      return "100%";
+    case "md":
+      return "50%";
+    case "sm":
+      return "25%";
+    default:
+      return "100%";
+  }
 };
 
 export const Container = styled.TouchableOpacity<Props>`
+  width: ${({ size }) => getWidth(size)};
   max-height: 70px;
   padding: 16px;
   margin: 4px 0;
