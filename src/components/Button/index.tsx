@@ -1,3 +1,4 @@
+import React from "react";
 import { MaterialIcons } from "@expo/vector-icons";
 import {
   Container,
@@ -10,11 +11,20 @@ interface ButtonProps {
   text: string;
   icon?: keyof typeof MaterialIcons.glyphMap;
   type?: ButtonIconTypeStyleProps;
+  size?: "lg" | "md" | "sm" | "auto";
+  onPress?: () => void;
 }
 
-export function Button({ text, icon, type = "PRIMARY", ...rest }: ButtonProps) {
+export function Button({
+  text,
+  icon,
+  type = "PRIMARY",
+  onPress,
+  size = "lg",
+  ...rest
+}: ButtonProps) {
   return (
-    <Container type={type} {...rest}>
+    <Container type={type} onPress={onPress} size={size} {...rest}>
       {icon && <Icon name={icon} type={type} />}
       <ButtonText type={type}>{text}</ButtonText>
     </Container>

@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Image, Text, View, FlatList, TouchableOpacity } from "react-native";
 import axios from "axios";
-
 import { Percent } from "@components/Percent";
-
 import logo from "@assets/images/logo.png";
 import {
   Avatar,
@@ -92,7 +90,11 @@ export function Home({ navigation }: Props) {
       <Content>
         <View>
           <Label>Refeições</Label>
-          <Button icon="add" text="Nova refeição" />
+          <Button
+            icon="add"
+            text="Nova refeição"
+            onPress={() => navigation.navigate("AddEditMeal")}
+          />
         </View>
         {Meals && (
           <FlatList

@@ -5,11 +5,28 @@ export type ButtonIconTypeStyleProps = "PRIMARY" | "SECONDARY";
 
 type Props = {
   type: ButtonIconTypeStyleProps;
+  size: string;
+};
+
+const getWidth = (size?: "lg" | "md" | "sm" | "auto") => {
+  switch (size) {
+    case "lg":
+      return "100%";
+    case "md":
+      return "50%";
+    case "sm":
+      return "25%";
+    case "auto":
+      return "auto";
+    default:
+      return "100%";
+  }
 };
 
 export const Container = styled.TouchableOpacity<Props>`
+  width: ${({ size }) => getWidth(size)};
   max-height: 70px;
-  padding: 16px;
+  padding: 16px 24px;
   margin: 4px 0;
   ${({ theme, type }) =>
     type === "SECONDARY" ? "border: 2px solid " + theme.COLORS.GRAY_600 : ""};
