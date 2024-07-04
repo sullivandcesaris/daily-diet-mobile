@@ -11,7 +11,7 @@ interface ButtonProps {
   text: string;
   icon?: keyof typeof MaterialIcons.glyphMap;
   type?: ButtonIconTypeStyleProps;
-  size?: "lg" | "md" | "sm";
+  size?: "lg" | "md" | "sm" | "auto";
   onPress?: () => void;
 }
 

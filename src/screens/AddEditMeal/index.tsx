@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { ProfileScreenNavigationProp } from "@types/navigation";
 import {
   Container,
@@ -19,6 +20,12 @@ type Props = {
 };
 
 export function AddEditMeal({ navigation }: Props) {
+  const [isHealthy, setIsHealthy] = useState<boolean | null>(null);
+
+  const handleSubmit = () => {
+    navigation.navigate("FeedbackMeal", { isHealthy });
+  };
+
   return (
     <Container>
       <Header>
@@ -35,9 +42,12 @@ export function AddEditMeal({ navigation }: Props) {
             <InputDateTime label="Data" size="md" />
             <InputDateTime label="Hora" type="time" size="md" />
           </VStack>
-          <CheckButton label="Está dentro da dieta?" />
+          <CheckButton
+            label="Está dentro da dieta?"
+            setActiveButton={setIsHealthy}
+          />
         </FormContainer>
-        <Button text="Cadastrar refeição" />
+        <Button text="Cadastrar refeição" onPress={handleSubmit} />
       </Content>
     </Container>
   );
