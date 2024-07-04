@@ -1,6 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { AddNewMeal } from "@screens/AddNewMeal";
+import { AddEditMeal } from "@screens/AddEditMeal";
 import { Home } from "@screens/Home";
 import { Stats } from "@screens/Stats";
 
@@ -25,8 +25,8 @@ export function Routes() {
           }}
         />
         <Stack.Screen
-          name="AddNewMeal"
-          component={AddNewMeal}
+          name="AddEditMeal"
+          component={AddEditMeal}
           options={{
             headerShown: false,
           }}

@@ -18,7 +18,7 @@ type Props = {
   navigation: ProfileScreenNavigationProp;
 };
 
-export function AddNewMeal({ navigation }: Props) {
+export function AddEditMeal({ navigation }: Props) {
   return (
     <Container>
       <Header>

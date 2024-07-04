@@ -93,7 +93,7 @@ export function Home({ navigation }: Props) {
           <Button
             icon="add"
             text="Nova refeição"
-            onPress={() => navigation.navigate("AddNewMeal")}
+            onPress={() => navigation.navigate("AddEditMeal")}
           />
         </View>
         {Meals && (
