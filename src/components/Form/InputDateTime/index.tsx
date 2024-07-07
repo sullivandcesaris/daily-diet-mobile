@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { TextInput, TouchableOpacity } from "react-native";
+import React, { useState, useEffect } from "react";
+import { TouchableOpacity } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { Container, Label, StyledInput } from "./style";
 
@@ -7,14 +7,39 @@ interface InputDateTimeProps {
   label: string;
   type?: "date" | "time"; // Definindo os tipos suportados
   size?: "lg" | "md" | "sm" | "auto";
+  initialValue?: string; // Adicionando prop para valor inicial
 }
+
+const parseDateString = (dateString: string) => {
+  const [day, month, year] = dateString.split("/").map(Number);
+  return new Date(year, month - 1, day);
+};
+
+const parseTimeString = (timeString: string) => {
+  const [hours, minutes] = timeString.split(":").map(Number);
+  const date = new Date();
+  date.setHours(hours, minutes, 0, 0);
+  return date;
+};
 
 export const InputDateTime: React.FC<InputDateTimeProps> = ({
   label,
   type = "date",
   size = "lg",
+  initialValue,
 }) => {
   const [date, setDate] = useState(new Date());
+
+  useEffect(() => {
+    if (initialValue) {
+      const initialDate =
+        type === "date"
+          ? parseDateString(initialValue)
+          : parseTimeString(initialValue);
+      setDate(initialDate);
+    }
+  }, [initialValue, type]);
+
   const [show, setShow] = useState(false);
 
   const onChange = (event, selectedDate) => {
@@ -36,7 +61,7 @@ export const InputDateTime: React.FC<InputDateTimeProps> = ({
         <StyledInput
           value={
             type === "date"
-              ? date.toLocaleDateString()
+              ? date.toLocaleDateString("pt-BR")
               : date.toLocaleTimeString([], {
                   hour: "2-digit",
                   minute: "2-digit",

@@ -1,111 +1,69 @@
 export interface MealInterface {
   [date: string]: {
-    horario: string;
-    nomeComida: string;
-    saudavel: boolean;
+    hour: string;
+    name: string;
+    description: string;
+    healthy: boolean;
   }[];
 }
 
 export const Meals: MealInterface = {
-  "13/07/23": [
+  "13/07/2023": [
     {
-      horario: "08:00",
-      nomeComida: "Aveia com frutas",
-      saudavel: true,
+      hour: "08:00",
+      name: "Aveia com frutas",
+      description: "Aveia com frutas variadas",
+      healthy: true,
     },
     {
-      horario: "12:30",
-      nomeComida: "Salada de legumes",
-      saudavel: true,
+      hour: "12:30",
+      name: "Salada de legumes",
+      description: "Salada de legumes frescos",
+      healthy: true,
     },
     {
-      horario: "15:00",
-      nomeComida: "Biscoitos recheados",
-      saudavel: false,
+      hour: "15:00",
+      name: "Biscoitos recheados",
+      description: "Biscoitos recheados com chocolate",
+      healthy: false,
     },
     {
-      horario: "19:00",
-      nomeComida: "Peixe grelhado com legumes",
-      saudavel: true,
+      hour: "19:00",
+      name: "Peixe grelhado com legumes",
+      description: "Peixe grelhado acompanhado de legumes",
+      healthy: true,
     },
     {
-      horario: "22:00",
-      nomeComida: "Sorvete",
-      saudavel: false,
-    },
-  ],
-  "14/07/23": [
-    {
-      horario: "07:30",
-      nomeComida: "Iogurte com granola",
-      saudavel: true,
-    },
-    {
-      horario: "12:00",
-      nomeComida: "Frango assado com batata-doce",
-      saudavel: true,
-    },
-    {
-      horario: "15:30",
-      nomeComida: "Bolacha de arroz com queijo",
-      saudavel: false,
-    },
-    {
-      horario: "20:00",
-      nomeComida: "Hambúrguer e batatas fritas",
-      saudavel: false,
+      hour: "22:00",
+      name: "Sorvete",
+      description: "Sorvete de baunilha",
+      healthy: false,
     },
   ],
-};
-
-export const MealsOff: MealInterface = {
-  "13/07/23": [
+  "14/07/2023": [
     {
-      horario: "08:00",
-      nomeComida: "Aveia com frutas",
-      saudavel: true,
+      hour: "07:30",
+      name: "Iogurte com granola",
+      description: "Iogurte natural com granola",
+      healthy: true,
     },
     {
-      horario: "12:30",
-      nomeComida: "Salada de legumes",
-      saudavel: false,
+      hour: "12:00",
+      name: "Frango assado com batata-doce",
+      description: "Frango assado acompanhado de batata-doce",
+      healthy: true,
     },
     {
-      horario: "15:00",
-      nomeComida: "Biscoitos recheados",
-      saudavel: false,
+      hour: "15:30",
+      name: "Bolacha de arroz com queijo",
+      description: "Bolacha de arroz com queijo",
+      healthy: false,
     },
     {
-      horario: "19:00",
-      nomeComida: "Peixe grelhado com legumes",
-      saudavel: true,
-    },
-    {
-      horario: "22:00",
-      nomeComida: "Sorvete",
-      saudavel: false,
-    },
-  ],
-  "14/07/23": [
-    {
-      horario: "07:30",
-      nomeComida: "Iogurte com granola",
-      saudavel: true,
-    },
-    {
-      horario: "12:00",
-      nomeComida: "Frango assado com batata-doce",
-      saudavel: true,
-    },
-    {
-      horario: "15:30",
-      nomeComida: "Bolacha de arroz com queijo",
-      saudavel: false,
-    },
-    {
-      horario: "20:00",
-      nomeComida: "Hambúrguer e batatas fritas",
-      saudavel: false,
+      hour: "20:00",
+      name: "Hambúrguer e batatas fritas",
+      description: "Hambúrguer com batatas fritas",
+      healthy: false,
     },
   ],
 };

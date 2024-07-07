@@ -21,10 +21,11 @@ import { ProfileScreenNavigationProp } from "@types/navigation";
 // Temporario
 import { Meals } from "@storage/mealsStorage";
 
-interface Refeicao {
-  horario: string;
-  nomeComida: string;
-  saudavel: boolean;
+interface Meal {
+  hour: string;
+  name: string;
+  description: string;
+  healthy: boolean;
 }
 
 type Props = {
@@ -53,19 +54,18 @@ export function Home({ navigation }: Props) {
     });
   }, []);
 
-  const renderItem = ({
-    item,
-  }: {
-    item: { data: string; cardapioDiaList: Refeicao };
-  }) => (
+  const renderItem = ({ item }: { item: { data: string; meals: Meal[] } }) => (
     <ContainerList>
       <StringDate>{item.data}</StringDate>
-      {item.cardapioDiaList.map((refeicao, indiceCardapioDia) => (
-        <ContainerInfo key={indiceCardapioDia}>
-          <DateInfo>{refeicao.horario}</DateInfo>
-          <TitleInfo>{refeicao.nomeComida}</TitleInfo>
+      {item.meals.map((meal, index) => (
+        <ContainerInfo
+          key={index}
+          onPress={() => navigation.navigate("ViewMeal", { meal, item })}
+        >
+          <DateInfo>{meal.hour}</DateInfo>
+          <TitleInfo>{meal.name}</TitleInfo>
           <Text>
-            {refeicao.saudavel ? (
+            {meal.healthy ? (
               <OptionCircle type={true} />
             ) : (
               <OptionCircle type={false} />
@@ -99,8 +99,8 @@ export function Home({ navigation }: Props) {
         {Meals && (
           <FlatList
             data={Object.entries(Meals)
-              .map(([data, cardapioDiaList]) => ({ data, cardapioDiaList }))
-              .reverse()} // Aqui, usamos o método reverse() para inverter a ordem dos itens
+              .map(([data, meals]) => ({ data, meals }))
+              .reverse()}
             renderItem={renderItem}
             keyExtractor={(_, index) => index.toString()}
           />

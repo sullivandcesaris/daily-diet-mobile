@@ -45,7 +45,7 @@ export const ContainerList = styled.View`
   margin: 14px 0;
 `;
 
-export const ContainerInfo = styled.View`
+export const ContainerInfo = styled.TouchableOpacity`
   margin: 4px 0;
   padding: 12px;
   border: 1px solid ${({ theme }) => theme.COLORS.GRAY_300};

@@ -4,6 +4,7 @@ import { AddEditMeal } from "@screens/AddEditMeal";
 import { FeedbackMeal } from "@screens/AddEditMeal/FeedbackMeal";
 import { Home } from "@screens/Home";
 import { Stats } from "@screens/Stats";
+import { ViewMeal } from "@screens/ViewMeal";
 
 const Stack = createNativeStackNavigator();
 
@@ -35,6 +36,13 @@ export function Routes() {
         <Stack.Screen
           name="FeedbackMeal"
           component={FeedbackMeal}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="ViewMeal"
+          component={ViewMeal}
           options={{
             headerShown: false,
           }}
