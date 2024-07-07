@@ -12,7 +12,7 @@ export function calculatePercentage(): number {
   return parseFloat(percentage.toFixed(2));
 }
 
-export function getTotalMeals() {
+export function getTotalMeals(): number {
   let total = 0;
   for (const day in Meals) {
     total += Meals[day].length;
@@ -20,29 +20,29 @@ export function getTotalMeals() {
   return total;
 }
 
-export function getHealthyMealsCount() {
+export function getHealthyMealsCount(): number {
   let count = 0;
   for (const day in Meals) {
-    count += Meals[day].filter((meal) => meal.saudavel).length;
+    count += Meals[day].filter((meal) => meal.healthy).length;
   }
   return count;
 }
 
-export function getUnhealthyMealsCount() {
+export function getUnhealthyMealsCount(): number {
   let count = 0;
   for (const day in Meals) {
-    count += Meals[day].filter((meal) => !meal.saudavel).length;
+    count += Meals[day].filter((meal) => !meal.healthy).length;
   }
   return count;
 }
 
-export function getBestHealthySequence() {
+export function getBestHealthySequence(): number {
   let bestSequence = 0;
   let currentSequence = 0;
 
   for (const day in Meals) {
     for (const meal of Meals[day]) {
-      if (meal.saudavel) {
+      if (meal.healthy) {
         currentSequence++;
         if (currentSequence > bestSequence) {
           bestSequence = currentSequence;

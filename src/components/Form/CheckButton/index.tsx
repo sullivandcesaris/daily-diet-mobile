@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Container,
   Label,
@@ -14,15 +14,23 @@ interface CheckButtonProps extends TextInputProps {
   label: string;
   size?: "auto" | "lg" | "md" | "sm";
   setActiveButton: (value: boolean | null) => void;
+  isActive: boolean | null; // Adicionando prop para valor inicial
 }
 
 export function CheckButton({
   label,
   size = "lg",
   setActiveButton,
+  isActive,
   ...props
 }: CheckButtonProps) {
-  const [activeButton, setActiveButtonState] = useState<boolean | null>(null);
+  const [activeButton, setActiveButtonState] = useState<boolean | null>(
+    isActive,
+  );
+
+  useEffect(() => {
+    setActiveButtonState(isActive);
+  }, [isActive]);
 
   const handlePress = (value: boolean) => {
     setActiveButtonState(value);
